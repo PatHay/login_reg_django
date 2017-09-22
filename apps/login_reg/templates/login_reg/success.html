@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+        
+        p{
+            color: green;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div id = "container">
+            {% if messages %}
+                {% for message in messages %}
+                {% if "name" in message.tags %}
+                <h1 {% if message.tags %} class="{{ message.tags }}"{% endif %}>Success!  Welcome, {{ message }}</h1>
+                {% endif %}    
+                    {% if "register" in message.tags %}
+                        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>Successfully {{ message }}</p>                
+                    {% endif %}
+                    {% if "login" in message.tags %}
+                        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>Successfully {{ message }}</p>                
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login & Reg | Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #container{
+            height: 100%;
+            width: 100%;
+        }
+
+        table{
+            border: 2px solid black;
+        }
+        #table_header{
+            background-color: grey;
+        }
+        .fieldWrapper{
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <h1>Registration</h1>
+        <p>
+        </p>
+        <p>
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <ul style='list-style: none'>
+                    <div class="fieldWrapper">
+                        {{ form.first_name.errors }}
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.last_name.errors }}
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.email.errors }}
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.password.errors }}
+                        {{ form.password.label_tag }}
+                        {{ form.password }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.confirm_password.errors }}
+                        {{ form.confirm_password.label_tag }}
+                        {{ form.confirm_password }}
+                    </div>
+                <input type="submit" value="Register">
+                </ul>
+            </form>
+        </p>
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <ul style='list-style: none'>
+                <div class="fieldWrapper">
+                    {{ form2.email.errors }}
+                    {{ form2.email.label_tag }}
+                    {{ form2.email }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ form2.password.errors }}
+                    {{ form2.password.label_tag }}
+                    {{ form2.password }}
+                </div>
+                <input type="submit" value="Login">
+            </ul>
+        </form>
+    </div>
+</body>
+
+</html>
